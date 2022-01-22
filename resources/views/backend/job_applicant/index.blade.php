@@ -62,6 +62,7 @@
                     <th>Start Date</th>
                     <th>Experience</th>
                     <th>Application</th>
+                    <th>CV</th>
                     {{-- <th class="no-content"></th> --}}
                 </tr>
             </thead>
@@ -101,6 +102,16 @@
                         { "data": "start_date", "name": "start_date"},
                         { "data": "experience", "name": "experience"},
                         { "data": "application", "name": "application"},
+                        { "data": "cv", "name": "cv" ,
+                            fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
+                                var html = "";
+                                if(oData.cv)
+                                    html = "<a target='_blank' href='"+oData.cv+"'>CV</a>";
+                                else
+                                    html = "<span class='badge badge-danger'>-</span>";
+                                $(nTd).html(html);
+                            }
+                        },
                         // { "data": "active", "name": "active" ,
                         //     fnCreatedCell: function (nTd, sData, oData, iRow, iCol) {
                         //         var html = '';

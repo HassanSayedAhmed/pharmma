@@ -88,7 +88,7 @@
                     <div class="form-widget">
                         <div class="form-result"></div>
 
-                        <form action="{{route('front_apply_to_job')}}" class="row mb-0" method="post">
+                        <form action="{{route('front_apply_to_job')}}" class="row mb-0" method="post" enctype="multipart/form-data">
                             
                             {{ csrf_field() }}
                             <div class="form-process">
@@ -110,9 +110,14 @@
 
                             <div class="w-100"></div>
 
-                            <div class="col-12 form-group">
+                            <div class="col-6 form-group">
                                 <label for="template-jobform-email">Email <small>*</small></label>
                                 <input type="email" id="template_jobform_email" name="email" value="" class="required email sm-form-control" />
+                            </div>
+
+                            <div class="col-6 form-group">
+                                <label for="template-jobform-cv">CV <small>*</small></label>
+                                <input type="file" id="template_jobform_cv" name="cv" value="" class="required sm-form-control" />
                             </div>
 
                             <div class="col-md-6 form-group">

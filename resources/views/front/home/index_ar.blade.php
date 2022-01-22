@@ -554,8 +554,59 @@
 						<h3>المنتجات</h3>
 					</div>
 					<div id="oc-events" class="owl-carousel events-carousel carousel-widget" data-pagi="false" data-items-md="1" data-items-lg="2" data-items-xl="2">
+						@for($product = 0; $product < count($products); $product+=2)
+						<div class="oc-item row">
+							<div class="entry event mb-3 col-lg-6">
+								<div class="grid-inner row align-items-center g-0 p-4">
+									<div class="col-md-12 mb-md-0">
+										<a href="{{route('front_product_detail_ar',['product'=>$products[$product]['id']])}}" class="entry-image">
+											@if($products[$product]['image'])
+												<img src="{{$products[$product]['image']}}" />
+											@else 
+												<img src="{{asset('front/images/acivirx-400-copy.png')}}" alt="Inventore voluptates velit totam ipsa">
+											@endif
+										</a>
+										
+									</div>
+									<div class="col-md-12">
+										<div class="entry-title title-xs">
+											<h3 class="text-center"><a href="#">{{$products[$product]['name_ar']}}</a><!--Key:{{array_key_exists($product+1,$products)}}--></h3>
+										</div>
+										<div class="entry-content">
+											<a href="{{route('front_product_detail_ar',['product'=>$products[$product]['id']])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
+											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							@if(array_key_exists($product+1,$products))
+							<div class="entry event mb-3 col-lg-6">
+								<div class="grid-inner row align-items-center g-0 p-4">
+									<div class="col-md-12 mb-md-0">
+										<a href="#" class="entry-image">
+											@if($products[$product+1]['image'])
+												<img src="{{$products[$product+1]['image']}}" />
+											@else 
+												<img src="{{asset('front/images/acivirx-400-copy.png')}}" alt="Inventore voluptates velit totam ipsa">
+											@endif
+										</a>
+									</div>
+									<div class="col-md-12">
+										<div class="entry-title title-xs">
+											<h3 class="text-center"><a href="{{route('front_product_detail_ar',['product'=>$products[$product+1]['id']])}}">{{$products[$product+1]['name_ar']}}</a></h3>
+										</div>
+										<div class="entry-content">
+											<a href="{{route('front_product_detail_ar',['product'=>$products[$product+1]['id']])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
+											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							@endif
+						</div>
+						@endfor
 
-						<div class="oc-item row">
+						{{-- <div class="oc-item row">
 							<div class="entry event mb-3 col-lg-6">
 								<div class="grid-inner row align-items-center g-0 p-4">
 									<div class="col-md-12 mb-md-0">
@@ -702,7 +753,7 @@
 								</div>
 							</div>
 							
-						</div>
+						</div> --}}
 					</div>
 				</div>
 			</div>

@@ -91,13 +91,14 @@
                     <div class="form-widget">
                         <div class="form-result"></div>
 
-                        <form action="{{route('front_apply_to_job')}}" id="template-jobform" name="template-jobform" class="row mb-0" method="post">
-
+                        <form action="{{route('front_apply_to_job')}}" id="template-jobform" name="template-jobform" class="row mb-0" method="post" enctype="multipart/form-data">
+                            {{ csrf_field() }}
                             <div class="form-process">
                                 <div class="css3-spinner">
                                     <div class="css3-spinner-scaler"></div>
                                 </div>
                             </div>
+                            <input type="hidden" id="job_id" name="job_id" value="{{$job->id}}" class="sm-form-control required" />
 
                             <div class="col-md-6 form-group">
                                 <label for="template-jobform-fname">
@@ -113,19 +114,24 @@
 
                             <div class="w-100"></div>
 
-                            <div class="col-12 form-group">
+                            <div class="col-6 form-group">
                                 <label for="template-jobform-email">البريد الإلكتروني <small>*</small></label>
                                 <input type="email" id="template-jobform-email" name="email" value="" class="required email sm-form-control" />
                             </div>
 
+                            <div class="col-6 form-group">
+                                <label for="template-jobform-cv">السيرة الذاتية <small>*</small></label>
+                                <input type="file" id="template_jobform_cv" name="cv" value="" class="required sm-form-control" />
+                            </div>
+
                             <div class="col-md-6 form-group">
                                 <label for="template-jobform-age">العمر <small>*</small></label>
-                                <input type="text" name="template-jobform-age" id="age" value="" size="22" tabindex="4" class="sm-form-control required" />
+                                <input type="text" name="template_jobform_age" id="age" value="" size="22" tabindex="4" class="sm-form-control required" />
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="template-jobform-city">المدينة <small>*</small></label>
-                                <input type="text" name="template-jobform-city" id="city" value="" size="22" tabindex="5" class="sm-form-control required" />
+                                <input type="text" name="template_jobform_city" id="city" value="" size="22" tabindex="5" class="sm-form-control required" />
                             </div>
 
                             <div class="w-100"></div>
@@ -134,14 +140,14 @@
                                 <label for="template-jobform-salary">
                                 الراتب المتوقع
                                 </label>
-                                <input type="text" name="template-jobform-salary" id="expected_salary" value="" size="22" tabindex="6" class="sm-form-control" />
+                                <input type="text" name="template_jobform_salary" id="expected_salary" value="" size="22" tabindex="6" class="sm-form-control" />
                             </div>
 
                             <div class="col-md-6 form-group">
                                 <label for="template-jobform-time">
                                 تاريخ البدء
                                 </label>
-                                <input type="date" name="template-jobform-start" id="start_date" value="" size="22" tabindex="7" class="sm-form-control" />
+                                <input type="date" name="template_jobform_start" id="start_date" value="" size="22" tabindex="7" class="sm-form-control" />
                             </div>
 
                             <div class="w-100"></div>

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html dir="ltr" lang="en-US">
 <head>
 
@@ -532,7 +532,7 @@
 							<div class="entry event mb-3 col-lg-6">
 								<div class="grid-inner row align-items-center g-0 p-4">
 									<div class="col-md-12 mb-md-0">
-										<a href="#" class="entry-image">
+										<a href="{{route('front_product_detail',['product'=>$products[$product]['id']])}}" class="entry-image">
 											@if($products[$product]['image'])
 												<img src="{{$products[$product]['image']}}" />
 											@else 
@@ -543,11 +543,14 @@
 									</div>
 									<div class="col-md-12">
 										<div class="entry-title title-xs">
-											<h3 class="text-center"><a href="#">{{$products[$product]['name']}}</a><!--Key:{{array_key_exists($product+1,$products)}}--></h3>
+											<h3 class="text-center">
+												<a href="{{route('front_product_detail',['product'=>$products[$product]['id']])}}">{{$products[$product]['name']}}</a>
+											</h3>
 										</div>
 										<div class="entry-content">
-											<a href="#" class="btn btn-infoss btn-sm unique-btn">More</a> 
-											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
+											<a href="{{route('front_product_detail',['product'=>$products[$product]['id']])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
+											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp <br>
+											</a>
 										</div>
 									</div>
 								</div>
@@ -566,10 +569,10 @@
 									</div>
 									<div class="col-md-12">
 										<div class="entry-title title-xs">
-											<h3 class="text-center"><a href="#">{{$products[$product+1]['name']}}</a></h3>
+											<h3 class="text-center"><a href="{{route('front_product_detail',['product'=>$products[$product+1]['id']])}}">{{$products[$product+1]['name']}}</a></h3>
 										</div>
 										<div class="entry-content">
-											<a href="#" class="btn btn-infoss btn-sm unique-btn">More</a> 
+											<a href="{{route('front_product_detail',['product'=>$products[$product+1]['id']])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
 											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
 										</div>
 									</div>

@@ -30,8 +30,8 @@ class HomeController extends Controller
     }
     public function indexAr()
     {
-        $products = product::select('products.*')->get()->take(8);
-        
+        $products = product::select('products.*')->get()->take(8)->toArray();
+     
         $blogActive = Blog::orderBy('updated_at','desc')->first();
         $blogs = Blog::orderBy('updated_at','desc')->where('id','!=',$blogActive->id)->select('blogs.*')->get()->take(4);
 
@@ -196,6 +196,13 @@ class HomeController extends Controller
         $jobApplicant->experience = $request->experiencee;
         $jobApplicant->application = $request->application;
         $jobApplicant->job_id = $request->job_id;
+        if($request->has('cv')){
+            $file = $request->file('cv');
+            $jobApplicant->cv = '/uploads/cv/'. $file->getClientOriginalName();
+            $destinationPath = '/uploads/cv';
+            $file->move(public_path($destinationPath), $file->getClientOriginalName());
+        }
+
         $jobApplicant->save();
       
         return redirect(route('front_careers'));
