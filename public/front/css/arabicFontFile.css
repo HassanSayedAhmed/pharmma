@@ -1,0 +1,13 @@
+@font-face {
+    src: url("fonts/Cairo-Black.ttf");
+    src: url("fonts/Cairo-Bold.ttf");
+    src: url("fonts/Cairo-ExtraLight.ttf");
+    src: url("fonts/Cairo-Light.ttf");
+    src: url("fonts/Cairo-Regular.ttf");
+    src: url("fonts/Cairo-SemiBold.ttf");
+    src: url("fonts/Cairo-VariableFont_wght.ttf");
+    font-family: "cairo-arabic";
+    }
+:not(i,svg,.icon-angle-up){
+    font-family: cairo-arabic!important;
+}
