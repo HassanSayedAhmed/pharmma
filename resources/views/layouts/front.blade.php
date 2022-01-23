@@ -315,7 +315,7 @@
 			<div id="copyrights">
 				<div class="container">
 					<div class="w-100 text-center">
-						Copyrights &copy; 2020 All Rights Reserved by UP Agency.
+						Copyrights &copy; 2020 All Rights Reserved by GrowYa.
 					</div>
 
 				</div>

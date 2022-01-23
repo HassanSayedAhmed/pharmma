@@ -321,7 +321,7 @@
 			<div id="copyrights">
 				<div class="container">
 					<div class="w-100 text-center">
-						جميع الحقوق محفوظة &copy; لعام 2020 لشركة اب اجينسي	
+						جميع الحقوق محفوظة &copy; لعام 2020 لشركة جرويا	
 					</div>
 
 				</div>
@@ -374,7 +374,6 @@
 			// console.log("document.location.pathname : "+document.location.pathname);
 			window.location.href = document.location.origin + document.location.pathname.replace('en','ar')
 		})
-		
 	</script>
 </body>
 </html>

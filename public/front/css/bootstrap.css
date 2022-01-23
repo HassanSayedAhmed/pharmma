@@ -5786,7 +5786,7 @@ textarea.form-control-lg {
 }
 
 .carousel-control-prev {
-	left: 0;
+	left: -1.25rem;
 }
 
 .carousel-control-next {
