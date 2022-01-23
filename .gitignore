@@ -14,7 +14,7 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-# .env
+.env
 .htaccess
 test/vendor/tecnickcom/tcpdf.zip
 resources/views/students/certificates/components/statement_degree_info.blade.php
