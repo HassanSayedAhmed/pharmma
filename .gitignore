@@ -1,12 +1,20 @@
 /node_modules
 /public/hot
 /public/storage
+/public/.htaccess
 /storage/*.key
-# /vendor
-.env
-.env.backup
-.phpunit.result.cache
+/storage/app
+/storage/app
+/storage
+/vendor
+/.idea
+/.vscode
+/.vagrant
 Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+.env
+.htaccess
+test/vendor/tecnickcom/tcpdf.zip
+resources/views/students/certificates/components/statement_degree_info.blade.php
