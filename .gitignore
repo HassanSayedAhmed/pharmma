@@ -16,5 +16,9 @@ npm-debug.log
 yarn-error.log
 .env
 .htaccess
+.env.backup
 test/vendor/tecnickcom/tcpdf.zip
 resources/views/students/certificates/components/statement_degree_info.blade.php
+/.idea
+.phpunit.result.cache
+docker-compose.override.yml

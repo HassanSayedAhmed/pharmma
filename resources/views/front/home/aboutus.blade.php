@@ -505,50 +505,22 @@
 								<h4>Recent Blogs </h4>
 
 								<div class="posts-sm row col-mb-30" id="post-list-footer">
+									@foreach ($recentBlogs as $recentBlog)
 									<div class="entry col-12">
 										<div class="grid-inner row">
 											<div class="col">
 												<div class="entry-title">
-													<h4><a href="#">Lorem ipsum dolor sit amet, consectetur</a></h4>
+													<h4><a href="{{route('front_blog_detail',['blog'=>$recentBlog->id])}}">{{$recentBlog->title}}</a></h4>
 												</div>
 												<div class="entry-meta">
 													<ul>
-														<li>10th July 2021</li>
+														<li>{{$recentBlog->updated_at->toFormattedDateString()}}</li>
 													</ul>
 												</div>
 											</div>
 										</div>
 									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row">
-											<div class="col">
-												<div class="entry-title">
-													<h4><a href="#">Elit Assumenda vel amet dolorum quasi</a></h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li>10th July 2021</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row">
-											<div class="col">
-												<div class="entry-title">
-													<h4><a href="#">Debitis nihil placeat, illum est nisi</a></h4>
-												</div>
-												<div class="entry-meta">
-													<ul>
-														<li>10th July 2021</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
+									@endforeach
 								</div>
 
 							</div>
@@ -563,8 +535,8 @@
 
 								<div class="form-result"></div>
 
-								<form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form mb-0">
-
+								<form id="quick-contact-form" name="quick-contact-form" action="{{route('front_contactus_save')}}" method="post" class="quick-contact-form mb-0">
+									{{ csrf_field() }}
 									<div class="form-process">
 										<div class="css3-spinner">
 											<div class="css3-spinner-scaler"></div>
@@ -573,13 +545,13 @@
 
 									<div class="input-group mx-auto">
 										<div class="input-group-text"><i class="icon-user"></i></div>
-										<input type="text" class="required form-control" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="Full Name" />
+										<input type="text" class="required form-control" id="quick-contact-form-name" name="name" value="" placeholder="Full Name" />
 									</div>
 									<div class="input-group mx-auto">
 										<div class="input-group-text"><i class="icon-email2"></i></div>
-										<input type="text" class="required form-control email" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="Email Address" />
+										<input type="text" class="required form-control email" id="quick-contact-form-email" name="email" value="" placeholder="Email Address" />
 									</div>
-									<textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="Message"></textarea>
+									<textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="message" rows="4" cols="30" placeholder="Message"></textarea>
 									<input type="text" class="d-none" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
 									<input type="hidden" name="prefix" value="quick-contact-form-">
 									<button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-outline btn-roundeded" style="background-color: #273b76;color: #FFF;" value="submit">Send Email</button>
