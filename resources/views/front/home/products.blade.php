@@ -86,12 +86,22 @@
                                     
                                 @endforeach
                             </ul>
- 
+                            <div class="btn-group">
+								<a  class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									Primary
+                                </a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">Something else here</a>
+									<div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#">Separated link</a>
+								</div>
+							</div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>
