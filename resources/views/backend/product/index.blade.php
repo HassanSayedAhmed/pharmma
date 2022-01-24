@@ -40,19 +40,27 @@
                     </div>
                     <div class="form-group">
                         <label>Category</label>
-                        {{-- {!! Form::select('category_id', array(""=>__("Select Category"))+$categories, null, array('id'=> 'category_id', 'title'=> 'Category', 'class'=>'form-control')) !!} --}}
+                        {!! Form::select('category_id_filter', array(""=>__("Select Category"))+$categories, null, array('id'=> 'category_id_filter', 'title'=> 'Category', 'class'=>'form-control')) !!}
+                    </div>
+                    <div class="form-group" id="sub_category_div">
+                        <label>Sub Category</label>
+                        {!! Form::select('category_id', array(""=>__("Select Sub Category"))+$subCategories, null, array('id'=> 'category_id', 'required'=>'required', 'title'=> 'Sub Category', 'class'=>'form-control')) !!}
+                    </div>
+                    {{-- old category with sub category --}}
+                    {{-- <div class="form-group">
+                        <label>Category</label>
                         <select  name="category_id" id="category_id" title='Category' class='form-control'>
                             <option value="">Please Select</option>
                             @foreach ($categories as $category)
-                            {{-- <optgroup label="{{$category->name}}"> --}}
+                                <optgroup label="{{$category->name}}">
                                 <option style="color: green;" value="{{$category->id}}">{{$category->name}}</option>
                                 @foreach ($category->subCategory as $sub)
                                     <option value="{{$sub->id}}">{{$sub->name}}</option>
                                 @endforeach
-                              {{-- </optgroup> --}}
+                              </optgroup>
                             @endforeach
                         </select>
-                    </div>
+                    </div> --}}
                     <div class="form-group">
                         <label>Covid</label>
                         <select class="form-control" name="type" id="type">
@@ -177,8 +185,43 @@
                 }, function (response) {
 
                 }, function (dialog) {
-           
-                  });
+                    $(document).on("change", "#category_id_filter", function () {
+
+                        var url = '{{route('get_sub_category',['id'=>'#id'])}}';
+
+                        if(dialog.find('#category_id_filter').val() > 0)
+                            url = url.replace('#id',dialog.find('#category_id_filter').val());
+                        else
+                            url = url.replace('#id',-1);
+                        var html = "";
+                        $.ajax({
+                            type: "GET",
+                            url: url,
+                            contentType: "application/json; charset=utf-8",
+                            datatype: "json",
+                            success: function (data) {
+
+                                dialog.find('#sub_category_div').html('');
+                                html += `
+                                    <label>Sub Category</label>
+                                    <select class="form-control" id="category_id" name="category_id">`;
+
+                                Object.keys(data).forEach(function(key) {
+                                    console.log(key, data[key]);
+                                    html += `<option value="${key}">${data[key]}</option>`;
+                                });
+
+                                html += `</select>`;
+
+                                dialog.find('#sub_category_div').append(html);
+                            },
+                            error: function () {
+                                alert("Dynamic content load failed.");
+                            }
+                        });
+                        
+                    });
+                });
 
             });
 
@@ -204,7 +247,46 @@
                         dialog.find('#description').val(data.description);
                         dialog.find('#description_ar').val(data.description_ar);
                         dialog.find('#category_id option[value=' + data.category_id + ']').attr('selected', 'selected');
+                        dialog.find('#covid option[value=' + data.covid + ']').attr('selected', 'selected');
                         dialog.find('#type option[value=' + data.type + ']').attr('selected', 'selected');
+
+                        $(document).on("change", "#category_id_filter", function () {
+
+                            var url = '{{route('get_sub_category',['id'=>'#id'])}}';
+
+                            if(dialog.find('#category_id_filter').val() > 0)
+                                url = url.replace('#id',dialog.find('#category_id_filter').val());
+                            else
+                                url = url.replace('#id',-1);
+                            var html = "";
+                            $.ajax({
+                                type: "GET",
+                                url: url,
+                                contentType: "application/json; charset=utf-8",
+                                datatype: "json",
+                                success: function (data) {
+
+                                    dialog.find('#sub_category_div').html('');
+                                    html += `
+                                        <label>Sub Category</label>
+                                        <select class="form-control" id="category_id" name="category_id">`;
+
+                                    Object.keys(data).forEach(function(key) {
+                                        console.log(key, data[key]);
+                                        html += `<option value="${key}">${data[key]}</option>`;
+                                    });
+
+                                    html += `</select>`;
+
+                                    dialog.find('#sub_category_div').append(html);
+                                },
+                                error: function () {
+                                    alert("Dynamic content load failed.");
+                                }
+                            });
+
+                        });
+
                     });
             });
 
@@ -228,6 +310,8 @@
                     });
                 });
             });
+
+           
 		});	
    </script> 
 @endsection

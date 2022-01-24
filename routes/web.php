@@ -30,6 +30,7 @@ Route::get('/Sub/Category/delete/{id?}','SubCategoryController@delete')->name('d
 Route::get('/Product/Index','ProductController@index')->name('product_index');
 Route::post('/Product/Save','ProductController@save')->name('save_product');
 Route::get('/Product/delete/{id?}','ProductController@delete')->name('delete_product');
+Route::get('/Product/sub_category/{id}','ProductController@getSubCategory')->name('get_sub_category');
 
 Route::get('/Blog/Index','BlogController@index')->name('blog_index');
 Route::post('/Blog/Save','BlogController@save')->name('save_blog');
@@ -62,6 +63,7 @@ Route::get('/aboutus/delete/{id?}','AboutUsController@delete')->name('delete_abo
 Route::get('/home/slider/Index','HomeSliderController@index')->name('home_slider_index');
 Route::post('/home/slider/Save','HomeSliderController@save')->name('save_home_slider');
 Route::get('/home/slider/delete/{id?}','HomeSliderController@delete')->name('delete_home_slider');
+
 
 //Front End Routes
 Route::get('/','HomeController@index')->name('front_index');

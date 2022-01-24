@@ -46,7 +46,7 @@ class ProductController extends Controller
 
             return $result;
         }
-
+        //old category with sub category
         $categories = Category::select('id','name','description','image','parent_id','active')
             ->where('parent_id', null)->orderBy('id', 'desc');
           
@@ -58,8 +58,11 @@ class ProductController extends Controller
 
             return $value;
         });
-      
-        return view('backend.product.index', compact('categories'));
+        //end old category
+        $categories = Category::where('parent_id', null)->pluck('name','id')->toArray();
+        $subCategories = Category::where('parent_id', '!=', null)->pluck('name','id')->toArray();
+        
+        return view('backend.product.index', compact('categories','subCategories'));
     }
 
     public function save(Request $request)
@@ -106,5 +109,14 @@ class ProductController extends Controller
         $product = product::find($id);
         $product->delete();
         return response()->json($id);
+    }
+
+    public function getSubCategory($id)
+    {
+        $subCategories = Category::where('parent_id', '!=', null)->pluck('name','id')->toArray();
+        if($id>0)
+            $subCategories = Category::where('parent_id', $id)->pluck('name','id')->toArray();
+        
+        return response()->json($subCategories);
     }
 }
