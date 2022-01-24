@@ -225,50 +225,22 @@
 								<h4>آخر المقالات  </h4>
 
 								<div class="posts-sm row col-mb-30" id="post-list-footer">
+									@foreach ($recentBlogs as $recentBlog)
 									<div class="entry col-12">
 										<div class="grid-inner row">
 											<div class="col">
 												<div class="entry-title">
-													<h4><a href="#">المقالة الأولي</a></h4>
+													<h4><a href="{{route('front_blog_detail_ar',['blog'=>$recentBlog->id])}}">{{$recentBlog->title_ar}}</a></h4>
 												</div>
-												<div>
+												<div class="entry-meta">
 													<ul>
-														<li>10 يوليو 2020</li>
+														<li>{{$recentBlog->updated_at->toFormattedDateString()}}</li>
 													</ul>
 												</div>
 											</div>
 										</div>
 									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row">
-											<div class="col">
-												<div class="entry-title">
-													<h4><a href="#">المقالة الثانية</a></h4>
-												</div>
-												<div>
-													<ul>
-														<li>10 يوليو 2020</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-
-									<div class="entry col-12">
-										<div class="grid-inner row">
-											<div class="col">
-												<div class="entry-title">
-													<h4><a href="#">المقالة الثالثة</a></h4>
-												</div>
-												<div>
-													<ul>
-														<li>10 يوليو 2020</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
+									@endforeach
 								</div>
 
 							</div>
@@ -283,8 +255,8 @@
 
 								<div class="form-result"></div>
 
-								<form id="quick-contact-form" name="quick-contact-form" action="include/form.php" method="post" class="quick-contact-form mb-0">
-
+								<form id="quick-contact-form" name="quick-contact-form" action="{{route('front_contactus_save')}}" method="post" class="quick-contact-form mb-0">
+									{{ csrf_field() }}
 									<div class="form-process">
 										<div class="css3-spinner">
 											<div class="css3-spinner-scaler"></div>
@@ -293,13 +265,13 @@
 
 									<div class="input-group mx-auto">
 										<div class="input-group-text"><i class="icon-user"></i></div>
-										<input type="text" class="required form-control" id="quick-contact-form-name" name="quick-contact-form-name" value="" placeholder="الإسم بالكامل" />
+										<input type="text" class="required form-control" id="quick-contact-form-name" name="name" value="" placeholder="الإسم بالكامل" />
 									</div>
 									<div class="input-group mx-auto">
 										<div class="input-group-text"><i class="icon-email2"></i></div>
-										<input type="text" class="required form-control email" id="quick-contact-form-email" name="quick-contact-form-email" value="" placeholder="البريد الإلكتروني" />
+										<input type="text" class="required form-control email" id="quick-contact-form-email" name="email" value="" placeholder="البريد الإلكتروني" />
 									</div>
-									<textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="quick-contact-form-message" rows="4" cols="30" placeholder="رسالتك"></textarea>
+									<textarea class="required form-control input-block-level short-textarea" id="quick-contact-form-message" name="message" rows="4" cols="30" placeholder="رسالتك"></textarea>
 									<input type="text" class="d-none" id="quick-contact-form-botcheck" name="quick-contact-form-botcheck" value="" />
 									<input type="hidden" name="prefix" value="quick-contact-form-">
 									<button type="submit" id="quick-contact-form-submit" name="quick-contact-form-submit" class="btn btn-outline btn-roundeded" style="background-color: #273b76;color: #FFF;" value="ارسل">
