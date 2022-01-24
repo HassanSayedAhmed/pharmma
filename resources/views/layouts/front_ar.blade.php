@@ -232,7 +232,7 @@
 												<div class="entry-title">
 													<h4><a href="{{route('front_blog_detail_ar',['blog'=>$recentBlog->id])}}">{{$recentBlog->title_ar}}</a></h4>
 												</div>
-												<div class="entry-meta">
+												<div class="entry-meta-ar">
 													<ul>
 														<li>{{$recentBlog->updated_at->toFormattedDateString()}}</li>
 													</ul>
