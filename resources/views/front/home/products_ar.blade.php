@@ -70,7 +70,7 @@
                             <ul>
                                 <li class="widget-filter-reset active-filter"><a href="{{route('front_products')}}" data-filter="*">احذف</a></li>
                                 @foreach($categories as $category)
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{route('front_products',['category'=>$category->id])}}" onMouseOver="this.style.color='#0000FF'" onMouseOut="this.style.color='#45433f'">
                                                 {{$category->name}}
                                         </a>
@@ -81,9 +81,20 @@
                                                 @endforeach
                                             </ul>
                                         @endif
-                                        
-                                    </li>
-                                    
+                                    </li> --}}
+                                    <div class="btn-group">
+                                        <a  class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{$category->name_ar}}
+                                        </a>
+                                        @if ($category->subCategory)
+                                        <div class="dropdown-menu">
+                                            @foreach ($category->subCategory as $sub)                                   
+                                                <a class="dropdown-item" href="{{route('front_products_ar',['category'=>$sub->id])}}">{{$sub->name_ar}}</a>
+                                            @endforeach
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <br>
                                 @endforeach
                             </ul>
                             </div>

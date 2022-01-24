@@ -70,7 +70,7 @@
                             <ul>
                                 <li class="widget-filter-reset active-filter"><a href="{{route('front_products')}}" data-filter="*">Clear</a></li>
                                 @foreach($categories as $category)
-                                    <li>
+                                    {{-- <li>
                                         <a href="{{route('front_products',['category'=>$category->id])}}" onMouseOver="this.style.color='#0000FF'" onMouseOut="this.style.color='#45433f'">
                                                 {{$category->name}}
                                         </a>
@@ -82,22 +82,23 @@
                                             </ul>
                                         @endif
                                         
-                                    </li>
-                                    
+                                    </li> --}}
+                                    <div class="btn-group">
+                                        <a  class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            {{$category->name}}
+                                        </a>
+                                        @if ($category->subCategory)
+                                        <div class="dropdown-menu">
+                                            @foreach ($category->subCategory as $sub)                                   
+                                                <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
+                                            @endforeach
+                                        </div>
+                                        @endif
+                                    </div>
+                                    <br>
                                 @endforeach
                             </ul>
-                            <div class="btn-group">
-								<a  class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Primary
-                                </a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">Action</a>
-									<a class="dropdown-item" href="#">Another action</a>
-									<a class="dropdown-item" href="#">Something else here</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">Separated link</a>
-								</div>
-							</div>
+                            
                         </div>
                     </div>
                 </div>

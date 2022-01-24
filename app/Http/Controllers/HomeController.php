@@ -68,7 +68,7 @@ class HomeController extends Controller
         }
         $products = $products->get();
 
-        $categories = Category::select('id','name','description','image','parent_id','active')
+        $categories = Category::select('id','name','name_ar','description','image','parent_id','active')
             ->where('parent_id', null)->orderBy('id', 'desc');
 
         $categories = $categories->paginate(Category::where('parent_id', null)->count('id'));
@@ -92,7 +92,7 @@ class HomeController extends Controller
         }
         $products = $products->get();
 
-        $categories = Category::select('id','name','description','image','parent_id','active')
+        $categories = Category::select('id','name','name_ar','description','description_ar','image','parent_id','active')
             ->where('parent_id', null)->orderBy('id', 'desc');
 
         $categories = $categories->paginate(Category::where('parent_id', null)->count('id'));
