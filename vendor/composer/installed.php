@@ -5,7 +5,7 @@
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5f6c7e114ae6e0702a4459c3f84960ee6230c81f',
+        'reference' => 'f85bbd9a79bd600ea4d3cbcfd288a9b70097945b',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -379,7 +379,7 @@
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5f6c7e114ae6e0702a4459c3f84960ee6230c81f',
+            'reference' => 'f85bbd9a79bd600ea4d3cbcfd288a9b70097945b',
             'dev_requirement' => false,
         ),
         'laravel/tinker' => array(
@@ -1119,12 +1119,12 @@
             'dev_requirement' => false,
         ),
         'voku/portable-ascii' => array(
-            'pretty_version' => '1.6.0',
-            'version' => '1.6.0.0',
+            'pretty_version' => '1.6.1',
+            'version' => '1.6.1.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../voku/portable-ascii',
             'aliases' => array(),
-            'reference' => '1f8b372a927ab2d17dbdab443aefbfe6a5354284',
+            'reference' => '87337c91b9dfacee02452244ee14ab3c43bc485a',
             'dev_requirement' => false,
         ),
         'webmozart/assert' => array(

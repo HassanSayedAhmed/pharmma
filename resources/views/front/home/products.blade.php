@@ -84,11 +84,11 @@
                                         
                                     </li> --}}
                                     <div class="btn-group">
-                                        <a  class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a  class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{$category->name}}
                                         </a>
                                         @if ($category->subCategory)
-                                        <div class="dropdown-menu">
+                                        <div class="dropdown-menu new-edit">
                                             @foreach ($category->subCategory as $sub)                                   
                                                 <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
                                             @endforeach
