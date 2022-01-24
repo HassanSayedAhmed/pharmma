@@ -134,6 +134,8 @@ class HomeController extends Controller
     public function blogsAr()
     {
         $blogs = blog::get();
+        $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
+
         return view('front.home.blogs_ar',compact('blogs', 'recentBlogs'));
     }
 
@@ -164,6 +166,8 @@ class HomeController extends Controller
     public function covidAr()
     {
         $products = product::where('type',product::COVID)->get();
+        $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
+
         return view('front.home.covid_ar',compact('products', 'recentBlogs'));
     }
 
@@ -188,6 +192,7 @@ class HomeController extends Controller
         $job = job::find($id);
         $jobRequirements = JobRequirements::where('job_id',$id)->get();
         $whatWeExpects = JobWhatWeExpect::where('job_id',$id)->get();
+        $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
         return view('front.home.careersApply',compact('job','jobRequirements','whatWeExpects', 'recentBlogs'));
     }
