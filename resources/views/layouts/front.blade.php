@@ -48,11 +48,11 @@
 						
 							<ul id="top-social" class="lefty">
 							<li class="lang-switch">
-									<a  id="index_en" href="javascript:void(0)">
-										<img src="https://wq3.com/uploads/language-icons/16327053281384740823.png"> En
+							<a  id="index_en" href="javascript:void(0)">
+										<img src="https://wq3.com/uploads/language-icons/16327053281384740823.png" style="border-radius: 50%;border: 1px solid lightblue;margin:0px 2px;"> En
 									</a>
 									<a  id="index_ar" href="javascript:void(0)">
-										<img src="https://wq3.com/uploads/language-icons/1632078760571914258.png"> Ar
+										<img src="https://wq3.com/uploads/language-icons/1632078760571914258.png" style="border-radius: 50%;border: 1px solid #f14131;margin:0px 2px;"> Ar
 									</a>				
 								</li>
 								<li><a href="tel:+201200007010" class="si-call"><span class="ts-icon"><i class="icon-call"></i></span><span class="ts-text">+201200007010</span></a></li>
@@ -368,7 +368,6 @@
 			// console.log("document.location.pathname : "+document.location.pathname);
 			window.location.href = document.location.origin + document.location.pathname.replace('en','ar')
 		})
-		
 	</script>
 </body>
 </html>
