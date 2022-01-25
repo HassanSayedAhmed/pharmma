@@ -15,7 +15,9 @@ class ApplicationSettingController extends Controller
     public function index()
     {
        $appSetting = ApplicationSetting::first();
-    
+       if($appSetting == null)
+            $appSetting = new ApplicationSetting();
+            
        return view('backend.setting.index', compact('appSetting'));
     }
 

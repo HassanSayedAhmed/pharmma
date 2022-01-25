@@ -889,13 +889,13 @@
 										<div class="col-6">
 											<address class="mb-0">
 												<span title="Headquarters" style="display: inline-block;margin-bottom: 7px;"><strong>المقر:</strong></span><br>
-												5 شارع حسنين هيكل , مدينة نصر , القاهرة
+												{{$appSetting->address}}
 											</address>
 										</div>
 										<div class="col-6">
-											<span title="Phone Number"><strong>رقم الهاتف:</strong></span> 888-808-0988<br>
-											<span title="Email Address"><strong>البريد الإلكتروني:</strong></span> xxxxxxxx@xxx.com<br>
-											<span title="Fax"><strong>الدعم:</strong></span> xxxxxxxx@xxx.com
+											<span title="Phone Number"><strong>رقم الهاتف:</strong></span> {{$appSetting->address}}<br>
+											<span title="Email Address"><strong>البريد الإلكتروني:</strong></span> {{$appSetting->sales_email}}<br>
+											<span title="Fax"><strong>الدعم:</strong></span> {{$appSetting->support_email}}
 										</div>
 									</div>
 								</div>

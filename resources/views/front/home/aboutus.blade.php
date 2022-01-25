@@ -444,13 +444,13 @@
 										<div class="col-6">
 											<address class="mb-0">
 												<span title="Headquarters" style="display: inline-block;margin-bottom: 7px;"><strong>Headquarter:</strong></span><br>
-												100 S. Ashely Drive, Suite 600, Tampa FL 33602
+												{{$appSetting->address}}
 											</address>
 										</div>
 										<div class="col-6">
-											<span title="Phone Number"><strong>Phone:</strong></span> 888-808-0988<br>
-											<span title="Email Address"><strong>Email:</strong></span> xxxxxxxx@xxx.com<br>
-											<span title="Fax"><strong>Support:</strong></span> xxxxxxxx@xxx.com
+											<span title="Phone Number"><strong>Phone:</strong></span> {{$appSetting->primary_phone}}<br>
+											<span title="Email Address"><strong>Email:</strong></span> {{$appSetting->sales_email}}<br>
+											<span title="Fax"><strong>Support:</strong></span> {{$appSetting->support_email}}
 										</div>
 									</div>
 								</div>

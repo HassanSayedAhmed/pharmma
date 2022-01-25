@@ -34,7 +34,7 @@
                                 <div class="entry event mb-3 col-lg-4">
                                     <div class="grid-inner row align-items-center g-0 p-4">
                                         <div class="col-md-12 mb-md-0">
-                                            <a href="https://api.whatsapp.com/send/?phone=%2B201551364964&text={{$product->name}} Available" class="entry-image">
+                                            <a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$product->name}} Available" class="entry-image">
                                                 @if($product->image)
                                                 <img src="{{$product->image}}" />
                                                 @else 
@@ -48,7 +48,7 @@
                                             </div>
                                             <div class="entry-content">
                                                 <a href="{{route('front_product_detail',['product'=>$product->id])}}" class="btn btn-infoss btn-sm unique-btn">More</a>
-                                                <a href="https://api.whatsapp.com/send/?phone=%2B201551364964&text={{$product->name}} Available" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
+                                                <a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$product->name}} Available" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
                                             </div>
                                         </div>
                                     </div>

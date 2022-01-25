@@ -14,6 +14,7 @@ use App\JobWhatWeExpect;
 use App\JobRequirements;
 use App\JobApplicant;
 use App\AboutUs;
+use App\ApplicationSetting;
 
 class HomeController extends Controller
 {
@@ -27,8 +28,10 @@ class HomeController extends Controller
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
         $sliders = HomeSlider::orderBy('updated_at','desc')->select('home_sliders.*')->get();
-       
-        return view('front.home.index',compact('products','blogs','blogActive','sliders', 'recentBlogs'));
+
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.index',compact('products','blogs','blogActive','sliders', 'recentBlogs','appSetting'));
     }
     public function indexAr()
     {
@@ -41,7 +44,9 @@ class HomeController extends Controller
 
         $sliders = HomeSlider::orderBy('updated_at','desc')->select('home_sliders.*')->get();
 
-        return view('front.home.index_ar',compact('products','blogs','blogActive','sliders', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.index_ar',compact('products','blogs','blogActive','sliders', 'recentBlogs','appSetting'));
     }
 
     public function aboutus()
@@ -49,7 +54,9 @@ class HomeController extends Controller
         $about = AboutUs::first();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
         
-        return view('front.home.aboutus',compact('about', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.aboutus',compact('about', 'recentBlogs','appSetting'));
     }
 
     public function aboutusAr()
@@ -57,7 +64,9 @@ class HomeController extends Controller
         $about = AboutUs::first();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.aboutus_ar',compact('about', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.aboutus_ar',compact('about', 'recentBlogs','appSetting'));
     }
 
     public function products(Category $category=null)
@@ -85,7 +94,9 @@ class HomeController extends Controller
         if($category != null)
             $currentCategory = Category::find($category->parent_id);
 
-        return view('front.home.products',compact('products','categories', 'recentBlogs', 'category', 'currentCategory','currentSubCategory'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.products',compact('products','appSetting','categories', 'recentBlogs', 'category', 'currentCategory','currentSubCategory'));
     }
 
     public function productsAr(Category $category=null)
@@ -113,12 +124,16 @@ class HomeController extends Controller
         if($category != null)
             $currentCategory = Category::find($category->parent_id);
 
-        return view('front.home.products_ar',compact('products','categories', 'recentBlogs','currentCategory','currentSubCategory'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.products_ar',compact('products','categories', 'recentBlogs','currentCategory','currentSubCategory','appSetting'));
     }
 
     public function productDetail(Product $product)
     {
         $relatedProducts = Product::where('id','!=',$product->id)->get();
+
+        $appSetting = ApplicationSetting::first();
 
         return view('front.home.product_detail',compact('product', 'relatedProducts', 'recentBlogs'));
     }
@@ -128,7 +143,9 @@ class HomeController extends Controller
         $relatedProducts = Product::where('id','!=',$product->id)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.product_detail_ar',compact('product', 'relatedProducts', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.product_detail_ar',compact('product', 'relatedProducts', 'recentBlogs','appSetting'));
     }
 
     public function blogs()
@@ -136,7 +153,9 @@ class HomeController extends Controller
         $blogs = blog::get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.blogs',compact('blogs', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.blogs',compact('blogs', 'recentBlogs','appSetting'));
     }
 
     public function blogsAr()
@@ -144,7 +163,9 @@ class HomeController extends Controller
         $blogs = blog::get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.blogs_ar',compact('blogs', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.blogs_ar',compact('blogs', 'recentBlogs','appSetting'));
     }
 
     public function blogDetail(Blog $blog)
@@ -152,7 +173,9 @@ class HomeController extends Controller
         $relatedBlogs = blog::where('id','!=',$blog->id)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.blog_detail',compact('blog','relatedBlogs', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.blog_detail',compact('blog','relatedBlogs', 'recentBlogs','appSetting'));
     }
 
     public function blogDetailAr(Blog $blog)
@@ -160,7 +183,9 @@ class HomeController extends Controller
         $relatedBlogs = blog::where('id','!=',$blog->id)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.blog_detail_ar',compact('blog','relatedBlogs', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.blog_detail_ar',compact('blog','relatedBlogs', 'recentBlogs','appSetting'));
     }
 
     public function covid()
@@ -168,7 +193,9 @@ class HomeController extends Controller
         $products = product::where('type',product::COVID)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.covid',compact('products', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.covid',compact('products', 'recentBlogs','appSetting'));
     }
 
     public function covidAr()
@@ -176,7 +203,9 @@ class HomeController extends Controller
         $products = product::where('type',product::COVID)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.covid_ar',compact('products', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.covid_ar',compact('products', 'recentBlogs','appSetting'));
     }
 
     public function careers()
@@ -184,7 +213,9 @@ class HomeController extends Controller
         $jobs = job::get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.careers',compact('jobs', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.careers',compact('jobs', 'recentBlogs','appSetting'));
     }
 
     public function careersAr()
@@ -192,7 +223,9 @@ class HomeController extends Controller
         $jobs = job::get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.careers_ar',compact('jobs', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.careers_ar',compact('jobs', 'recentBlogs','appSetting'));
     }
 
     public function careersApply($id)
@@ -202,7 +235,9 @@ class HomeController extends Controller
         $whatWeExpects = JobWhatWeExpect::where('job_id',$id)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.careersApply',compact('job','jobRequirements','whatWeExpects', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.careersApply',compact('job','jobRequirements','whatWeExpects', 'recentBlogs','appSetting'));
     }
 
     public function careersApplyAr($id)
@@ -212,7 +247,9 @@ class HomeController extends Controller
         $whatWeExpects = JobWhatWeExpect::where('job_id',$id)->get();
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.careersApply_ar',compact('job','jobRequirements','whatWeExpects', 'recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.careersApply_ar',compact('job','jobRequirements','whatWeExpects', 'recentBlogs','appSetting'));
     }
 
     public function careersApplyToJob(Request $request)
@@ -245,14 +282,18 @@ class HomeController extends Controller
     {
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.contactus', compact('recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.contactus', compact('recentBlogs','appSetting'));
     }
 
     public function contactusAr()
     {
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
-        return view('front.home.contactus_ar', compact('recentBlogs'));
+        $appSetting = ApplicationSetting::first();
+
+        return view('front.home.contactus_ar', compact('recentBlogs','appSetting'));
     }
 
     public function saveContactus(Request $request)
