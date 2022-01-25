@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\About' => $baseDir . '/app/About.php',
     'App\\AboutUs' => $baseDir . '/app/AboutUs.php',
+    'App\\ApplicationSetting' => $baseDir . '/app/ApplicationSetting.php',
     'App\\Carrier' => $baseDir . '/app/Carrier.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -55,7 +56,6 @@ return array(
     'App\\job' => $baseDir . '/app/job.php',
     'App\\log' => $baseDir . '/app/log.php',
     'App\\product' => $baseDir . '/app/product.php',
-    'App\\setting' => $baseDir . '/app/setting.php',
     'Asm89\\Stack\\Cors' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
     'Asm89\\Stack\\CorsService' => $vendorDir . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
     'Attribute' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',

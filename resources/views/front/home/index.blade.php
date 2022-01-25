@@ -817,7 +817,7 @@
 											<div class="css3-spinner-scaler"></div>
 										</div>
 									</div>
-
+									
 									<div class="input-group mx-auto">
 										<div class="input-group-text"><i class="icon-user"></i></div>
 										<input type="text" class="required form-control" id="quick-contact-form-name" name="name" value="" placeholder="Full Name" />

@@ -475,6 +475,7 @@ class ComposerStaticInit6fb3562ac90fe2afae21d5d5c46acd02
     public static $classMap = array (
         'App\\About' => __DIR__ . '/../..' . '/app/About.php',
         'App\\AboutUs' => __DIR__ . '/../..' . '/app/AboutUs.php',
+        'App\\ApplicationSetting' => __DIR__ . '/../..' . '/app/ApplicationSetting.php',
         'App\\Carrier' => __DIR__ . '/../..' . '/app/Carrier.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
@@ -522,7 +523,6 @@ class ComposerStaticInit6fb3562ac90fe2afae21d5d5c46acd02
         'App\\job' => __DIR__ . '/../..' . '/app/job.php',
         'App\\log' => __DIR__ . '/../..' . '/app/log.php',
         'App\\product' => __DIR__ . '/../..' . '/app/product.php',
-        'App\\setting' => __DIR__ . '/../..' . '/app/setting.php',
         'Asm89\\Stack\\Cors' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/Cors.php',
         'Asm89\\Stack\\CorsService' => __DIR__ . '/..' . '/asm89/stack-cors/src/Asm89/Stack/CorsService.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
