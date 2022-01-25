@@ -89,8 +89,16 @@
                                         </a>
                                         @if ($category->subCategory)
                                         <div class="dropdown-menu new-edit">
-                                            @foreach ($category->subCategory as $sub)                                   
-                                                <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
+                                            @foreach ($category->subCategory as $sub)
+                                                @if ($currentCategory != null)
+                                                    @if ($sub->id == $currentCategory->id)
+                                                        <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}} Active</a>
+                                                    @else
+                                                        <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
+                                                    @endif
+                                                @else
+                                                    <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
+                                                @endif
                                             @endforeach
                                         </div>
                                         @endif

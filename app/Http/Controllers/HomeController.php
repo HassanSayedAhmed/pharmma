@@ -80,8 +80,9 @@ class HomeController extends Controller
             return $value;
         });
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
+        $currentCategory = $category;
 
-        return view('front.home.products',compact('products','categories', 'recentBlogs'));
+        return view('front.home.products',compact('products','categories', 'recentBlogs', 'category', 'currentCategory'));
     }
 
     public function productsAr(Category $category=null)
@@ -104,8 +105,9 @@ class HomeController extends Controller
             return $value;
         });
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
+        $currentCategory = $category;
 
-        return view('front.home.products_ar',compact('products','categories', 'recentBlogs'));
+        return view('front.home.products_ar',compact('products','categories', 'recentBlogs','currentCategory'));
     }
 
     public function productDetail(Product $product)

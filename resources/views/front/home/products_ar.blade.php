@@ -82,19 +82,28 @@
                                             </ul>
                                         @endif
                                     </li> --}}
+                           
                                     <div class="btn-group">
                                         <a  class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             {{$category->name_ar}}
                                         </a>
                                         @if ($category->subCategory)
                                         <div class="dropdown-menu">
-                                            @foreach ($category->subCategory as $sub)                                   
-                                                <a class="dropdown-item" href="{{route('front_products_ar',['category'=>$sub->id])}}">{{$sub->name_ar}}</a>
+                                            @foreach ($category->subCategory as $sub)
+                                                @if ($currentCategory != null)
+                                                    @if ($sub->id == $currentCategory->id)
+                                                        <a class="dropdown-item" href="{{route('front_products_ar',['category'=>$sub->id])}}">{{$sub->name_ar}} Active</a>
+                                                    @else
+                                                        <a class="dropdown-item" href="{{route('front_products_ar',['category'=>$sub->id])}}">{{$sub->name_ar}}</a>
+                                                    @endif
+                                                @else
+                                                    <a class="dropdown-item" href="{{route('front_products_ar',['category'=>$sub->id])}}">{{$sub->name_ar}}</a>
+                                                @endif
                                             @endforeach
                                         </div>
                                         @endif
                                     </div>
-                                    <br>
+                                    
                                 @endforeach
                             </ul>
                             </div>
