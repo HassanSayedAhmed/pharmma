@@ -135,12 +135,15 @@ class HomeController extends Controller
 
         $appSetting = ApplicationSetting::first();
 
-        return view('front.home.product_detail',compact('product', 'relatedProducts', 'recentBlogs'));
+        $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
+
+        return view('front.home.product_detail',compact('product', 'relatedProducts','appSetting', 'recentBlogs'));
     }
 
     public function productDetailAr(Product $product)
     {
         $relatedProducts = Product::where('id','!=',$product->id)->get();
+
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
 
         $appSetting = ApplicationSetting::first();
