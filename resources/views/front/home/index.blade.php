@@ -549,7 +549,7 @@
 										</div>
 										<div class="entry-content">
 											<a href="{{route('front_product_detail',['product'=>$products[$product]['id']])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
-											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp <br>
+											<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text=Hi Available" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp <br>
 											</a>
 										</div>
 									</div>
@@ -559,7 +559,7 @@
 							<div class="entry event mb-3 col-lg-6">
 								<div class="grid-inner row align-items-center g-0 p-4">
 									<div class="col-md-12 mb-md-0">
-										<a href="#" class="entry-image">
+										<a href="{{route('front_product_detail',['product'=>$products[$product+1]['id']])}}" class="entry-image">
 											@if($products[$product+1]['image'])
 												<img src="{{$products[$product+1]['image']}}" />
 											@else 
@@ -573,7 +573,7 @@
 										</div>
 										<div class="entry-content">
 											<a href="{{route('front_product_detail',['product'=>$products[$product+1]['id']])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
-											<a href="#" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
+											<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text=Hi Available" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
 										</div>
 									</div>
 								</div>
