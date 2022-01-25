@@ -16,6 +16,7 @@ return array(
     'App\\Http\\Controllers\\AboutController' => $baseDir . '/app/Http/Controllers/AboutController.php',
     'App\\Http\\Controllers\\AboutUsController' => $baseDir . '/app/Http/Controllers/AboutUsController.php',
     'App\\Http\\Controllers\\AccountController' => $baseDir . '/app/Http/Controllers/AccountController.php',
+    'App\\Http\\Controllers\\ApplicationSettingController' => $baseDir . '/app/Http/Controllers/ApplicationSettingController.php',
     'App\\Http\\Controllers\\ArVersionController' => $baseDir . '/app/Http/Controllers/ArVersionController.php',
     'App\\Http\\Controllers\\BlogController' => $baseDir . '/app/Http/Controllers/BlogController.php',
     'App\\Http\\Controllers\\CarrierController' => $baseDir . '/app/Http/Controllers/CarrierController.php',
