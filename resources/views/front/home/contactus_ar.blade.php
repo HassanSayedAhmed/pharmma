@@ -34,8 +34,8 @@
 
                         <div class="form-result"></div>
 
-                        <form class="mb-0" id="template-contactform" name="template-contactform" action="include/form.php" method="post">
-
+                        <form class="mb-0" id="template-contactform" name="template-contactform" action="{{route('front_contactus_save')}}" method="post">
+                            {{ csrf_field() }}
                             <div class="form-process">
                                 <div class="css3-spinner">
                                     <div class="css3-spinner-scaler"></div>
@@ -45,17 +45,17 @@
                             <div class="row">
                                 <div class="col-md-4 form-group">
                                     <label for="template-contactform-name">الإسم <small>*</small></label>
-                                    <input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+                                    <input type="text" id="template-contactform-name" name="name" value="" class="sm-form-control required" />
                                 </div>
 
                                 <div class="col-md-4 form-group">
                                     <label for="template-contactform-email">البريد الإلكتروني <small>*</small></label>
-                                    <input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+                                    <input type="email" id="template-contactform-email" name="email" value="" class="required email sm-form-control" />
                                 </div>
 
                                 <div class="col-md-4 form-group">
                                     <label for="template-contactform-phone">رقم الهاتف</label>
-                                    <input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
+                                    <input type="text" id="template-contactform-phone" name="phone" value="" class="sm-form-control" />
                                 </div>
 
                                 <div class="w-100"></div>
@@ -67,7 +67,7 @@
 
                                 <div class="col-md-4 form-group">
                                     <label for="template-contactform-service">الخدمات</label>
-                                    <select id="template-contactform-service" name="template-contactform-service" class="sm-form-control">
+                                    <select id="template-contactform-service" name="service" class="sm-form-control">
                                         <option value="">-- اختر --</option>
                                         <option value="Wordpress">Wordpress</option>
                                         <option value="PHP / MySQL">PHP / MySQL</option>
@@ -80,7 +80,7 @@
 
                                 <div class="col-12 form-group">
                                     <label for="template-contactform-message">رسالة <small>*</small></label>
-                                    <textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+                                    <textarea class="required sm-form-control" id="message" name="message" rows="6" cols="30"></textarea>
                                 </div>
 
                                 <div class="col-12 form-group d-none">
@@ -115,7 +115,7 @@
                             <a href="#"><i class="icon-map-marker2"></i></a>
                         </div>
                         <div class="fbox-content">
-                                        5 شارع حسنين هيكل, مدينة نصر , القاهرة.
+                            {{$appSetting->address}}
                         </div>
                     </div>
                 </div>
@@ -128,8 +128,8 @@
                             <a href="#"><i class="icon-phone3"></i></a>
                         </div>
                         <div class="fbox-content">
-                            <h3>تحدث إلينا<span class="subtitle"><a href="tel:888-808-0988" >888-808-0988</a></span>
-                                <span class="subtitle"><a href="tel:813-793-7396" >813-793-7396</a></span></h3>
+                            <h3>تحدث إلينا<span class="subtitle"><a href="tel:{{$appSetting->primary_phone}}" >{{$appSetting->primary_phone}}</a></span>
+                                <span class="subtitle"><a href="tel:{{$appSetting->secondary_phone}}" >{{$appSetting->secondary_phone}}</a></span></h3>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                             <a href="#"><i class="icon-telegram"></i></a>
                         </div>
                         <div class="fbox-content">
-                        <h3><span class="subtitle"><a href="tg://msg?text=your MsG!" id="telegram_share" class="mobileShare" title="inviteFriends" alt="telegram_share">اتصل بنا من خلال تليجرام</a></span></h3>
+                        <h3><span class="subtitle"><a href="{{$appSetting->telegram_link}}" id="telegram_share" class="mobileShare" title="inviteFriends" alt="telegram_share">اتصل بنا من خلال تليجرام</a></span></h3>
                         </div>
                     </div>
                 </div>
@@ -151,9 +151,9 @@
                             <a href="#"><i class="icon-email3"></i></a>
                         </div>
                         <div class="fbox-content">
-                            <h3>البريد الإلكتروني<span class="subtitle"><a href="mailto:reservations@checkinow.com">المبيعات</a></span>
-                                <span class="subtitle"><a href="mailto:support@checkinow.com">خدمة العملاء</a></span>
-                                <span class="subtitle"><a href="https://wa.me/201091398980"><i class="fab fa-whatsapp"> واتساب</span></h3>
+                            <h3>البريد الإلكتروني<span class="subtitle"><a href="mailto:{{$appSetting->sales_email}}">المبيعات</a></span>
+                                <span class="subtitle"><a href="mailto:{{$appSetting->customer_service_email}}">خدمة العملاء</a></span>
+                                <span class="subtitle"><a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text=Hi Available"><i class="fab fa-whatsapp"> واتساب</span></h3>
                         </div>
                     </div>
                 </div>

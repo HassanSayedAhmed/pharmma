@@ -115,7 +115,7 @@
                             <a href="#"><i class="icon-map-marker2"></i></a>
                         </div>
                         <div class="fbox-content">
-                            <h3>Our Headquarters<span class="subtitle">100 S. Ashely Drive, Suite 600, Tampa FL 33602</span></h3>
+                            <h3>Our Headquarters<span class="subtitle">{{$appSetting->address}}</span></h3>
                         </div>
                     </div>
                 </div>
@@ -128,8 +128,8 @@
                             <a href="#"><i class="icon-phone3"></i></a>
                         </div>
                         <div class="fbox-content">
-                            <h3>Speak to Us<span class="subtitle"><a href="tel:888-808-0988" >888-808-0988</a></span>
-                                <span class="subtitle"><a href="tel:813-793-7396" >813-793-7396</a></span></h3>
+                            <h3>Speak to Us<span class="subtitle"><a href="tel:{{$appSetting->primary_phone}}" >{{$appSetting->primary_phone}}</a></span>
+                            <span class="subtitle"><a href="tel:{{$appSetting->secondary_phone}}" >{{$appSetting->secondary_phone}}</a></span></h3>
                         </div>
                     </div>
                 </div>
@@ -140,7 +140,7 @@
                             <a href="#"><i class="icon-telegram"></i></a>
                         </div>
                         <div class="fbox-content">
-                            <h3><span class="subtitle"><a href="tg://msg?text=your MsG!" id="telegram_share" class="mobileShare" title="inviteFriends" alt="telegram_share">connect via telegram</a></span></h3>
+                            <h3><span class="subtitle"><a href="{{$appSetting->telegram_link}}" id="telegram_share" class="mobileShare" title="inviteFriends" alt="telegram_share">connect via telegram</a></span></h3>
                         </div>
                     </div>
                 </div>
@@ -151,9 +151,9 @@
                             <a href="#"><i class="icon-email3"></i></a>
                         </div>
                         <div class="fbox-content">
-                            <h3>Emails<span class="subtitle"><a href="mailto:reservations@checkinow.com">Sales</a></span>
-                                <span class="subtitle"><a href="mailto:support@checkinow.com">Customer services</a></span>
-                                <span class="subtitle"><a href="https://wa.me/201091398980"><i class="fab fa-whatsapp"> whatsapp</span></h3>
+                            <h3>Emails<span class="subtitle"><a href="mailto:{{$appSetting->sales_email}}">Sales</a></span>
+                                <span class="subtitle"><a href="mailto:{{$appSetting->customer_service_email}}">Customer services</a></span>
+                                <span class="subtitle"><a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text=Hi Available"><i class="fab fa-whatsapp"> whatsapp</span></h3>
                         </div>
                     </div>
                 </div>

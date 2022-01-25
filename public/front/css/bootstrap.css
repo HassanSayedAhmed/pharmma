@@ -3398,10 +3398,13 @@ textarea.form-control-lg {
 
 .dropdown-toggle {
 	white-space: nowrap;
+	color: #444;
 }
 .dropdown-toggle.show {
 	white-space: nowrap;
 	margin:0.8rem;
+	color: #444;
+	font-weight: bold;
 }
 .dropdown-toggle::after {
 	display: inline-block;
@@ -3457,7 +3460,7 @@ textarea.form-control-lg {
 	position: unset!important;
     inset: unset!important;
     margin: 0px!important;
-    transform: translate(0px, 0px)!important;
+    transform: translate(0.75rem, 0px)!important;
 }
 
 .dropdown-menu-start {
@@ -3646,8 +3649,8 @@ textarea.form-control-lg {
 
 .dropdown-item {
 	display: block;
-	width: 100%;
-	padding: 0.25rem 1rem;
+	width: 90%;
+	padding: 0.25rem 0.5rem;
 	clear: both;
 	font-weight: 400;
 	color: #212529;
@@ -3723,8 +3726,7 @@ textarea.form-control-lg {
 .btn-group,
 .btn-group-vertical {
 	position: relative;
-	display: inline-flex;
-	vertical-align: middle;
+	display: block;
 }
 .btn-group > .btn,
 .btn-group-vertical > .btn {
