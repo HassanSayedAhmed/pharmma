@@ -80,9 +80,12 @@ class HomeController extends Controller
             return $value;
         });
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
-        $currentCategory = $category;
+        $currentSubCategory = $category;
+        $currentCategory = null;
+        if($category != null)
+            $currentCategory = Category::find($category->parent_id);
 
-        return view('front.home.products',compact('products','categories', 'recentBlogs', 'category', 'currentCategory'));
+        return view('front.home.products',compact('products','categories', 'recentBlogs', 'category', 'currentCategory','currentSubCategory'));
     }
 
     public function productsAr(Category $category=null)
@@ -105,9 +108,12 @@ class HomeController extends Controller
             return $value;
         });
         $recentBlogs = Blog::orderBy('updated_at','desc')->select('blogs.*')->get()->take(3);
-        $currentCategory = $category;
+        $currentSubCategory = $category;
+        $currentCategory = null;
+        if($category != null)
+            $currentCategory = Category::find($category->parent_id);
 
-        return view('front.home.products_ar',compact('products','categories', 'recentBlogs','currentCategory'));
+        return view('front.home.products_ar',compact('products','categories', 'recentBlogs','currentCategory','currentSubCategory'));
     }
 
     public function productDetail(Product $product)

@@ -85,13 +85,21 @@
                                     </li> --}}
                                     <div class="btn-group">
                                         <a  class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            {{$category->name}}
+                                            @if ($currentCategory != null)
+                                                @if ($category->id == $currentCategory->id)
+                                                    {{$category->name}} Active
+                                                @else
+                                                    {{$category->name}}
+                                                @endif
+                                            @else
+                                                {{$category->name}}
+                                            @endif
                                         </a>
                                         @if ($category->subCategory)
                                         <div class="dropdown-menu new-edit">
                                             @foreach ($category->subCategory as $sub)
-                                                @if ($currentCategory != null)
-                                                    @if ($sub->id == $currentCategory->id)
+                                                @if ($currentSubCategory != null)
+                                                    @if ($sub->id == $currentSubCategory->id)
                                                         <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}} Active</a>
                                                     @else
                                                         <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>

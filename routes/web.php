@@ -64,6 +64,8 @@ Route::get('/home/slider/Index','HomeSliderController@index')->name('home_slider
 Route::post('/home/slider/Save','HomeSliderController@save')->name('save_home_slider');
 Route::get('/home/slider/delete/{id?}','HomeSliderController@delete')->name('delete_home_slider');
 
+Route::get('/app/setting/Index','ApplicationSettingController@index')->name('app_setting_index');
+Route::post('/app/setting/save','ApplicationSettingController@saveSetting')->name('app_setting_save');
 
 //Front End Routes
 Route::get('/','HomeController@index')->name('front_index');
