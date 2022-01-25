@@ -92,7 +92,7 @@
                                             @foreach ($category->subCategory as $sub)
                                                 @if ($currentCategory != null)
                                                     @if ($sub->id == $currentCategory->id)
-                                                        <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}} Active</a>
+                                                        <a class="dropdown-item active" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
                                                     @else
                                                         <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
                                                     @endif
