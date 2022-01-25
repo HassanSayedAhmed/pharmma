@@ -83,24 +83,31 @@
                                         @endif
                                         
                                     </li> --}}
+                                    @php $show = false; @endphp
                                     <div class="btn-group">
-                                        <a  class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             @if ($currentCategory != null)
                                                 @if ($category->id == $currentCategory->id)
-                                                    {{$category->name}} Active
+                                                    @php $show = true; @endphp
+                                                    <a  class="dropdown-toggle show" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                                        {{$category->name}}
+                                                    </a>
                                                 @else
-                                                    {{$category->name}}
+                                                    <a  class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        {{$category->name}} 
+                                                    </a>
                                                 @endif
                                             @else
-                                                {{$category->name}}
+                                                <a  class="dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    {{$category->name}} 
+                                                </a>
                                             @endif
-                                        </a>
+                                                
                                         @if ($category->subCategory)
-                                        <div class="dropdown-menu new-edit">
+                                        <div class="dropdown-menu new-edit @if($show) <?= 'show'?> @endif">
                                             @foreach ($category->subCategory as $sub)
                                                 @if ($currentSubCategory != null)
                                                     @if ($sub->id == $currentSubCategory->id)
-                                                        <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}} Active</a>
+                                                        <a class="dropdown-item active" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
                                                     @else
                                                         <a class="dropdown-item" href="{{route('front_products',['category'=>$sub->id])}}">{{$sub->name}}</a>
                                                     @endif

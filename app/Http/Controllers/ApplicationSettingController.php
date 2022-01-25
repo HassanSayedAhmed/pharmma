@@ -15,7 +15,7 @@ class ApplicationSettingController extends Controller
     public function index()
     {
        $appSetting = ApplicationSetting::first();
-
+    
        return view('backend.setting.index', compact('appSetting'));
     }
 
@@ -26,7 +26,21 @@ class ApplicationSettingController extends Controller
      */
     public function saveSetting(Request $request)
     {
-        return response()->json($request);
+        $appSetting = ApplicationSetting::first();
+        if($appSetting == null)
+            $appSetting = new ApplicationSetting();
+
+        $appSetting->address = $request->address;
+        $appSetting->primary_phone = $request->primary_phone;
+        $appSetting->telegram_link = $request->telegram_link;
+        $appSetting->secondary_phone = $request->secondary_phone;
+        $appSetting->sales_email = $request->sales_email;
+        $appSetting->customer_service_email = $request->customer_service_email;
+        $appSetting->whatsapp_number = $request->whatsapp_number;
+        $appSetting->support_email = $request->support_email;
+        $appSetting->save();
+
+        return view('backend.setting.index', compact('appSetting'));
     }
 
     /**
