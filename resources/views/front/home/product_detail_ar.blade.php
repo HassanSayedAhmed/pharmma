@@ -23,6 +23,10 @@
 										<div class="col-12 entry-title title-xs">
                                         <p class="text-center row" ><span class="col-3" style="text-transform:capitalize;">النوع</span>   <a href="#" class="col-9">مضاد حيوي</a></p>
 										</div>
+										<div class="col-12 entry-title title-xs">
+										<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$product->name}} Available" class="btn btn-success btn-sm unique-btn" style="position: relative;top: 3.5rem;right: 16rem;">واتساب</a>
+											<a href="{{$appSetting->telegram_link}}" class="btn btn-sm unique-btn" style="position: relative;top: 3.5rem;right: 18rem;background-color:#2da5d8;color:white">تيليجرام</a>
+										</div>
 									</div>
 								</div>
 							</div>

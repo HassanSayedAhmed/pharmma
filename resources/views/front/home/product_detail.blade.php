@@ -23,6 +23,10 @@
 										<div class="col-12 entry-title title-xs">
                                         <p class="text-center row" ><span class="col-3" style="text-transform:capitalize;">type</span>   <a href="#" class="col-9">Anitviral</a></p>
 										</div>
+										<div class="col-12 entry-title title-xs">
+											<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$product->name}} Available" class="btn btn-success btn-sm unique-btn" style="position: relative;top: 3.5rem;left: 14rem;">WhatsApp</a>
+											<a href="{{$appSetting->telegram_link}}" class="btn btn-sm unique-btn" style="position: relative;top: 3.5rem;left: 16rem;background-color:#2da5d8;color:white">Telegram</a>
+										</div>
 									</div>
 								</div>
 							</div>

@@ -109,7 +109,7 @@
             <!-- Contact Info
             ============================================= -->
             <div class="row col-mb-50">
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg">
                     <div class="feature-box fbox-center fbox-bg fbox-plain fbox-fix-CS">
                         <div class="fbox-icon">
                             <a href="#"><i class="icon-map-marker2"></i></a>
@@ -122,7 +122,7 @@
 
             
 
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg">
                     <div class="feature-box fbox-center fbox-bg fbox-plain fbox-fix-CS">
                         <div class="fbox-icon">
                             <a href="#"><i class="icon-phone3"></i></a>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
                 
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg">
                     <div class="feature-box fbox-center fbox-bg fbox-plain fbox-fix-CS">
                         <div class="fbox-icon">
                             <a href="#"><i class="icon-telegram"></i></a>
@@ -144,8 +144,18 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6 col-lg">
+                    <div class="feature-box fbox-center fbox-bg fbox-plain fbox-fix-CS">
+                        <div class="fbox-icon">
+                            <a href="#"><i class="icon-whatsapp"></i></a>
+                        </div>
+                        <div class="fbox-content">
+                            <h3><span class="subtitle"><a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text=Hi Available">اتصل بنا من خلال واتساب</a></span></h3>
+                        </div>
+                    </div>
+                </div>
 
-                <div class="col-sm-6 col-lg-3">
+                <div class="col-sm-6 col-lg">
                     <div class="feature-box fbox-center fbox-bg fbox-plain fbox-fix-CS">
                         <div class="fbox-icon">
                             <a href="#"><i class="icon-email3"></i></a>
@@ -153,7 +163,6 @@
                         <div class="fbox-content">
                             <h3>البريد الإلكتروني<span class="subtitle"><a href="mailto:{{$appSetting->sales_email}}">المبيعات</a></span>
                                 <span class="subtitle"><a href="mailto:{{$appSetting->customer_service_email}}">خدمة العملاء</a></span>
-                                <span class="subtitle"><a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text=Hi Available"><i class="fab fa-whatsapp"> واتساب</span></h3>
                         </div>
                     </div>
                 </div>
