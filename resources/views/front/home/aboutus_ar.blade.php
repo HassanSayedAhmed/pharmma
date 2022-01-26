@@ -460,7 +460,7 @@
 											</address>
 										</div>
 										<div class="col-6">
-											<span title="Phone Number"><strong>رقم الهاتف:</strong></span> {{$appSetting->address}}<br>
+											<span title="Phone Number"><strong>رقم الهاتف:</strong></span> {{$appSetting->primary_phone}}<br>
 											<span title="Email Address"><strong>البريد الإلكتروني:</strong></span> {{$appSetting->sales_email}}<br>
 											<span title="Fax"><strong>الدعم:</strong></span> {{$appSetting->support_email}}
 										</div>
