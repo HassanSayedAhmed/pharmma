@@ -46,7 +46,7 @@
 								<div class="entry event mb-3 col-lg-3">
 									<div class="grid-inner row align-items-center g-0 p-4">
 										<div class="col-md-12 mb-md-0" style="display:flex;justify-content: space-around;margin-bottom:5px">
-											<a href="https://api.whatsapp.com/send/?phone=%2B201551364964&text={{$relatedProduct->name_ar}} Available" class="product-image-size-group">
+											<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$relatedProduct->name_ar}} Available" class="product-image-size-group">
 												@if($relatedProduct->image)
 												<img src="{{$relatedProduct->image}}" />
 												@else 
@@ -60,7 +60,7 @@
 											</div>
 											<div class="entry-content" style="display:flex;justify-content: space-around;margin-bottom:5px">
 												<a href="{{route('front_product_detail_ar',['product'=>$relatedProduct->id])}}" class="btn btn-infoss btn-sm unique-btn">المزيد</a> 
-												<a href="https://api.whatsapp.com/send/?phone=%2B201551364964&text={{$relatedProduct->name_ar}} Available" class="btn btn-dangerss btn-sm unique-btn2">واتساب</a>
+												<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$relatedProduct->name_ar}} Available" class="btn btn-dangerss btn-sm unique-btn2">واتساب</a>
 											</div>
 										</div>
 									</div>

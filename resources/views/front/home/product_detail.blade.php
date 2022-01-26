@@ -61,7 +61,7 @@
 											</div>
 											<div class="entry-content" style="display:flex;justify-content: space-around;margin-bottom:5px">
 												<a href="{{route('front_product_detail',['product'=>$relatedProduct->id])}}" class="btn btn-infoss btn-sm unique-btn">More</a> 
-												<a href="https://api.whatsapp.com/send/?phone=%2B201551364964&text={{$relatedProduct->name}} Available" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
+												<a href="https://api.whatsapp.com/send/?phone={{$appSetting->whatsapp_number}}&text={{$relatedProduct->name}} Available" class="btn btn-dangerss btn-sm unique-btn2">WhatsApp</a>
 											</div>
 										</div>
 									</div>
